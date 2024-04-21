@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
+@Composable//header para sa dice roller
 fun DiceRollerAppContent(modifier: Modifier = Modifier){
     Text(
         text = "Press the 'ROLL' button to roll!",
@@ -74,7 +74,7 @@ fun DiceRollerApp() {
             .wrapContentSize(Alignment.Center))
 }
 
-@Composable
+@Composable//dito nangyayari yung pagdisplay ng dice image
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
     var result by remember { mutableStateOf(1) }
     val imageResource = when (result) {
@@ -93,13 +93,13 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
             painter = painterResource(id = imageResource), contentDescription = result.toString()
         )
         Button(
-            onClick = {
+            onClick = {//dito nangyayari yung pagbigay ng randomise numbers from 1-6
                 result = (1..6).random()
             }
-        ) {
+        ) {//since naglagay ng button ung text yung nagsisilbi kung para saan yung button
             Text(stringResource(R.string.roll))
         }
-        Spacer(
+        Spacer(//para siyang margin para sa button
             modifier = Modifier
                 .height(16.dp)
         )
